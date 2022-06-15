@@ -3,6 +3,7 @@
 Scan a target for open ports and services behind them.
 
 ### Usage:
+---
 - Clone the repository:
 ```
 git clone https://github.com/G3nerationC0d1ac/Itagaki
