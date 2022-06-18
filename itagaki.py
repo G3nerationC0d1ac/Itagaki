@@ -12,7 +12,7 @@ Made by C0d1ac with <3
 
 TCP Portscanner - Itagaki
 --------------------------------------------------------------------
-Usage: python3 codiacScan.py -t <target_host> -m <maximum_port>
+Usage: python3 itagaki.py -t <target_host> -m <maximum_port>
 
 """
 
@@ -31,13 +31,13 @@ def main(argv):
             ]
         )
     except getopt.GetoptError:
-        print("Usage: python3 codiacScan.py -t <target_host> -m <maximum_port>")
+        print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
         sys.exit(1)
 
     try:
         for opt, arg in opts:
             if opt in ("-h", "--help"):
-                print("Usage: python3 codiacScan.py -t <target_host> -m <maximum_port>")
+                print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
                 sys.exit(0)
                 
             elif opt in ("-t", "--thost"):
@@ -45,11 +45,11 @@ def main(argv):
             elif opt in ("-m", "--mport"):
                 target_port = arg
             else:
-                print("Usage: python3 codiacScan.py -t <target_host> -m <maximum_port>")
+                print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
                 sys.exit(0)
                 
     except ValueError:
-        print("Usage: python3 codiacScan.py -t <target_host> -m <maximum_port>")
+        print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
         sys.exit(0)
 
     infob = [
@@ -118,7 +118,7 @@ def main(argv):
     except socket.error:
         pass
     except ValueError:
-        print("Usage: python3 codiacScan.py -t <target_host> -m <maximum_port>")
+        print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
         sys.exit(0)
     except KeyboardInterrupt:
         print(f"\n \033[0;31mCtrl+C pressed.")
