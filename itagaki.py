@@ -12,7 +12,7 @@ Made by C0d1ac with <3
 
 TCP Portscanner - Itagaki
 --------------------------------------------------------------------
-Usage: python3 itagaki.py -t <target_host> -m <maximum_port>
+Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>
 
 """
 
@@ -31,13 +31,13 @@ def main(argv):
             ]
         )
     except getopt.GetoptError:
-        print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
+        print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
         sys.exit(1)
 
     try:
         for opt, arg in opts:
             if opt in ("-h", "--help"):
-                print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
+                print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
                 sys.exit(0)
                 
             elif opt in ("-t", "--thost"):
@@ -45,11 +45,11 @@ def main(argv):
             elif opt in ("-m", "--mport"):
                 target_port = arg
             else:
-                print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
+                print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
                 sys.exit(0)
                 
     except ValueError:
-        print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
+        print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
         sys.exit(0)
 
     infob = [
@@ -57,8 +57,8 @@ def main(argv):
         "1.0.1",
     ]
 
-    name     = f"\033[0;31m" + infob[0]
-    vers     = f"\033[0;31m" + infob[1]
+    name     = f"\033[0;31m{infob[0]}"
+    vers     = f"\033[0;31m{infob[1]}"
     start_t  = dtt.now()
     get_addr = socket.gethostbyname(target_host)
     line_    = f"\033[0;31m-" * 55
@@ -72,17 +72,27 @@ def main(argv):
         ) + f"\033[0;37m"
     )
 
-    print("\033[0;31m-" * 55)
+    print(f"\033[0;31m-" * 55)
     print(f" Author: {name}\t\t\t\n Ver.: {vers}")
-    print("\n \033[0;37m{\033[0;31m*\033[0;37m} ", f"Start scan at => {start_t}")
+    
+    print(
+        "\n \033[0;37m{\033[0;31m*\033[0;37m} ", 
+        f"Start scan at => {start_t}"
+    )
 
     time.sleep(1)
 
-    print(" \033[0;37m{\033[0;31m*\033[0;37m\033[0;37m} ", f"Scan range => 0 - {target_port}")
+    print(
+        " \033[0;37m{\033[0;31m*\033[0;37m\033[0;37m} ", 
+        f"Scan range => 0 - {target_port}"
+    )
 
     time.sleep(1)
 
-    print(" \033[0;37m{\033[0;31m*\033[0;37m} ", f"Start scanning target => {target_host}/{get_addr}")
+    print(
+        " \033[0;37m{\033[0;31m*\033[0;37m} ", 
+        f"Start scanning target => {target_host}/{get_addr}"
+    )
 
     time.sleep(1)
 
@@ -118,7 +128,7 @@ def main(argv):
     except socket.error:
         pass
     except ValueError:
-        print("Usage: python3 itagaki.py -t <target_host> -m <maximum_port>")
+        print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
         sys.exit(0)
     except KeyboardInterrupt:
         print(f"\n \033[0;31mCtrl+C pressed.")
