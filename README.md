@@ -22,5 +22,5 @@ python3 itagaki.py -t <YOUR_TARGET> -m <MAXIMUM_PORT_YOU_WANT_TO_SCAN_TO>
 ```
 
 ### Thank you and have a nice day!
-~ Codiac
+~ GenerationCodiac
 
