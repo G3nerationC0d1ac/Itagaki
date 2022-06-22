@@ -39,7 +39,7 @@ def main(argv):
             if opt in ("-h", "--help"):
                 print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
                 sys.exit(0)
-                
+
             elif opt in ("-t", "--thost"):
                 target_host = arg
             elif opt in ("-m", "--mport"):
@@ -47,7 +47,7 @@ def main(argv):
             else:
                 print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
                 sys.exit(0)
-                
+
     except ValueError:
         print("Usage: python3 itagaki.py -t/--thost <target_host> -m/--mport <maximum_port>")
         sys.exit(0)
@@ -57,40 +57,40 @@ def main(argv):
         "1.0.1",
     ]
 
-    name     = f"\033[0;31m{infob[0]}"
-    vers     = f"\033[0;31m{infob[1]}"
-    start_t  = dtt.now()
+    name = f"\033[0;31m{infob[0]}"
+    vers = f"\033[0;31m{infob[1]}"
+    start_t = dtt.now()
     get_addr = socket.gethostbyname(target_host)
-    line_    = f"\033[0;31m-" * 55
+    line_ = f"\033[0;31m=" * 55
 
     os.system("clear")
 
     print(
         "\033[0;31m", pfgt.figlet_format(
             "Itagaki",
-            font="slant"
+            font="bulbhead"
         ) + f"\033[0;37m"
     )
 
-    print(f"\033[0;31m-" * 55)
+    print(f"\033[0;31m=" * 55)
     print(f" Author: {name}\t\t\t\n Ver.: {vers}")
-    
+
     print(
-        "\n \033[0;37m{\033[0;31m*\033[0;37m} ", 
+        "\n \033[0;37m{\033[0;31m*\033[0;37m} ",
         f"Start scan at => {start_t}"
     )
 
     time.sleep(1)
 
     print(
-        " \033[0;37m{\033[0;31m*\033[0;37m\033[0;37m} ", 
+        " \033[0;37m{\033[0;31m*\033[0;37m\033[0;37m} ",
         f"Scan range => 0 - {target_port}"
     )
 
     time.sleep(1)
 
     print(
-        " \033[0;37m{\033[0;31m*\033[0;37m} ", 
+        " \033[0;37m{\033[0;31m*\033[0;37m} ",
         f"Start scanning target => {target_host}/{get_addr}"
     )
 
@@ -113,7 +113,7 @@ def main(argv):
                 ))
 
                 socket_sock.settimeout(1)
-                
+
                 if final_result == 0:
                     try:
                         print(
@@ -121,10 +121,10 @@ def main(argv):
                             socket.getservbyport(target)
                         )
                     except socket.error:
-                        print(f" \033[0;36m[\033[0;31m+\033[0;36m] \033[0;32mTCP  \t{target}\topen\t\t Unknown")
+                        print(f" \033[0;36m[\033[0;31m+\033[0;36m] \033[0;32mTCP  \t{target}\topen\t\t \033[0;31mUnknown")
 
                 socket_sock.close()
-                
+
     except socket.error:
         pass
     except ValueError:
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     print(f"Remember, your public ip address is {get('https://api.ipify.org').text}.")
 
     r_sure = input(f"Do you want to start scanning? y/n ")
-    
+
     if r_sure == 'y' or r_sure == 'Y':
         pass
     elif r_sure == 'n' or r_sure == 'N':
